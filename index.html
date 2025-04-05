@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Mini                                                                             - Your Smart, Secure & Multilingual AI Assistant</title>
-
+    <title>AI Mini - Your Smart, Secure & Multilingual AI Assistant</title>
     <link rel="icon" type="image/png" href="logoai.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -43,11 +42,12 @@
             text-align: center;
             margin-bottom: 3rem;
             animation: fadeIn 1s ease-in-out;
+            position: relative;
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             margin: 0 auto 1.5rem;
             background: white;
             border-radius: 50%;
@@ -57,6 +57,11 @@
             box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
             border: 3px solid var(--primary);
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(15deg) scale(1.05);
         }
 
         .logo img {
@@ -66,26 +71,28 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             color: var(--primary);
             background: linear-gradient(to right, #6c63ff, #4a42e8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .tagline {
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 1.3rem;
+            color: #555;
             max-width: 700px;
             margin: 0 auto;
+            font-weight: 500;
         }
 
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
+            margin: 4rem 0;
         }
 
         .feature-card {
@@ -93,8 +100,23 @@
             border-radius: 15px;
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .feature-card:hover {
@@ -102,50 +124,114 @@
             box-shadow: 0 15px 30px rgba(108, 99, 255, 0.2);
         }
 
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1.5rem;
             color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
         }
 
         .feature-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: var(--dark);
+            font-weight: 600;
         }
 
         .feature-desc {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
         .download-section {
             text-align: center;
-            margin: 4rem 0;
+            margin: 5rem 0;
             padding: 3rem 2rem;
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(108, 99, 255, 0.1);
-            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .download-section p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2rem;
         }
 
         .download-btn {
             display: inline-block;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-top: 1.5rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+            box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
 
         .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.6);
+        }
+
+        .download-btn:hover::before {
+            opacity: 1;
         }
 
         .download-btn i {
@@ -154,10 +240,15 @@
 
         footer {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 5rem;
             padding: 2rem 0;
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
         }
 
         @keyframes fadeIn {
@@ -171,18 +262,43 @@
             100% { transform: scale(1); }
         }
 
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .tagline {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .features {
                 grid-template-columns: 1fr;
             }
+            
+            .download-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .download-btn {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Security notice */
+        .security-notice {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: rgba(108, 99, 255, 0.1);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #555;
         }
     </style>
 </head>
@@ -196,13 +312,18 @@
             <p class="tagline">Your Smart, Secure & Multilingual AI Assistant</p>
         </header>
 
+        <div class="security-notice">
+            <i class="fas fa-shield-alt"></i> Your security and privacy are protected. All interactions are encrypted.
+        </div>
 
         <div class="download-section">
-            <h2>Experience the Future of AI</h2>
-            <p>Download AI Mini now and transform how you work, learn, and communicate!</p>
-            <a href="https://www.amazon.in/dp/B0F3PFQ1BK/ref=mp_s_a_1_1?crid=3EZW9Z3E16NLI&dib=eyJ2IjoiMSJ9.5ZPZVNKrmhETIEf8LVsHxQ.6YzTGUf2-y4lAyivqQui7bm7yNZ5tXWeKlOZokXXQN8&dib_tag=se&keywords=aimini&nsdOptOutParam=true&qid=1743827312&s=mobile-apps&sprefix=aimini%2Caps%2C309&sr=1-1">
-            <i class="fas fa-download"></i> Download Now
-            </a>
+            <div class="download-content">
+                <h2>Experience the Future of AI</h2>
+                <p>Download AI Mini now and transform how you work, learn, and communicate!</p>
+                <a href="https://www.amazon.in/dp/B0F3PFQ1BK/ref=mp_s_a_1_1?crid=3EZW9Z3E16NLI&dib=eyJ2IjoiMSJ9.5ZPZVNKrmhETIEf8LVsHxQ.6YzTGUf2-y4lAyivqQui7bm7yNZ5tXWeKlOZokXXQN8&dib_tag=se&keywords=aimini&nsdOptOutParam=true&qid=1743827312&s=mobile-apps&sprefix=aimini%2Caps%2C309&sr=1-1" class="download-btn">
+                    <i class="fas fa-download"></i> Download Now
+                </a>
+            </div>
         </div>
         
         <div class="features">
@@ -219,7 +340,7 @@
                     <i class="fas fa-lock"></i>
                 </div>
                 <h3 class="feature-title">Fully Secure</h3>
-                <p class="feature-desc">Your privacy is our priority with advanced security features protecting all your data.</p>
+                <p class="feature-desc">Your privacy is our priority with end-to-end encryption and advanced security features protecting all your data.</p>
             </div>
 
             <div class="feature-card">
@@ -227,7 +348,7 @@
                     <i class="fas fa-book"></i>
                 </div>
                 <h3 class="feature-title">Informative & Helpful</h3>
-                <p class="feature-desc">Perfect for research, learning, and problem-solving with accurate, up-to-date information.</p>
+                <p class="feature-desc">Perfect for research, learning, and problem-solving with accurate, up-to-date information from trusted sources.</p>
             </div>
 
             <div class="feature-card">
@@ -243,7 +364,15 @@
                     <i class="fas fa-globe"></i>
                 </div>
                 <h3 class="feature-title">Multilingual Support</h3>
-                <p class="feature-desc">Communicate and learn in multiple languages with seamless translation capabilities.</p>
+                <p class="feature-desc">Communicate and learn in multiple languages with seamless, natural-sounding translation capabilities.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="feature-title">Always Improving</h3>
+                <p class="feature-desc">Our AI continuously learns and updates to provide you with the best possible assistance.</p>
             </div>
         </div>
     </div>
@@ -251,24 +380,56 @@
     <footer>
         <p>© 2023 AI Mini. All rights reserved.</p>
         <p>Your reliable, intelligent, and secure assistant for every need!</p>
+        <p><i class="fas fa-lock"></i> Secure Connection | <i class="fas fa-shield-alt"></i> Privacy Protected</p>
     </footer>
 
     <script>
-// Disable right-click
-document.addEventListener("contextmenu", (event) => event.preventDefault());
+        // Enhanced security features
+        document.addEventListener("DOMContentLoaded", function() {
+            // Disable right-click
+            document.addEventListener("contextmenu", function(event) {
+                event.preventDefault();
+                showSecurityNotice("Right-click is disabled for security reasons.");
+            });
 
-// Disable F12, Ctrl+Shift+I, Ctrl+Shift+C, and Ctrl+U
-document.addEventListener("keydown", (event) => {
-    if (
-        event.key === "F12" ||
-        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "C")) ||
-        (event.ctrlKey && event.key === "U")
-    ) {
-        event.preventDefault();
-    }
-});
+            // Disable developer tools
+            document.addEventListener("keydown", function(event) {
+                // F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+U
+                if (event.key === "F12" || 
+                    (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "C")) || 
+                    (event.ctrlKey && event.key === "U")) {
+                    event.preventDefault();
+                    showSecurityNotice("Developer tools are restricted for security reasons.");
+                }
+            });
 
-        
-</script>
+            // Show security notice
+            function showSecurityNotice(message) {
+                const notice = document.createElement('div');
+                notice.className = 'security-notice';
+                notice.innerHTML = `<i class="fas fa-shield-alt"></i> ${message}`;
+                notice.style.position = 'fixed';
+                notice.style.bottom = '20px';
+                notice.style.left = '50%';
+                notice.style.transform = 'translateX(-50%)';
+                notice.style.zIndex = '1000';
+                notice.style.animation = 'fadeIn 0.3s ease-in-out';
+                document.body.appendChild(notice);
+                
+                setTimeout(() => {
+                    notice.style.opacity = '0';
+                    setTimeout(() => notice.remove(), 300);
+                }, 3000);
+            }
+
+            // Add animation to download button on page load
+            const downloadBtn = document.querySelector('.download-btn');
+            if (downloadBtn) {
+                setTimeout(() => {
+                    downloadBtn.style.animation = 'pulse 2s infinite';
+                }, 1500);
+            }
+        });
+    </script>
 </body>
-</html>
+    </html>
